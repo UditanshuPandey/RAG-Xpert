@@ -97,7 +97,7 @@ def load_url_to_db():
 
 
 def initialize_vector_db(docs):
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    embedding = HuggingFaceEmbeddings()
 
     vector_db = Chroma.from_documents(
         documents=docs,
