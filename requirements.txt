@@ -1,4 +1,5 @@
-﻿pysqlite3-binary; sys_platform == 'linux'
+﻿langchain-groq
+pysqlite3-binary; sys_platform == 'linux'
 aiohappyeyeballs==2.4.0
 aiohttp==3.10.5
 aiosignal==1.3.1
