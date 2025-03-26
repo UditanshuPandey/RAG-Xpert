@@ -30,14 +30,14 @@ llm_groq = init_groq_model()
 
 # Streamlit app configuration
 st.set_page_config(
-    page_title="RAG LLM App with GROQ", 
+    page_title="RAG-Xpert", 
     page_icon="📚", 
     layout="centered", 
     initial_sidebar_state="expanded"
 )
 
 # --- Header ---
-st.html("""<h2 style="text-align: center;">📚🔍 <i>GROQ-powered RAG App</i> 🤖💬</h2>""")
+st.html("""<h2 style="text-align: center;">📚🔍 <i>RAG-Xpert : An Enhanced Retrieval-Augmented Generation Framework for Intelligent Document Processing and Knowledge Synthesis</i> 🤖💬</h2>""")
 
 # --- Initial Setup ---
 if "session_id" not in st.session_state:
