@@ -138,6 +138,6 @@ if prompt := st.chat_input("Your message"):
         ]
 
         if not st.session_state.use_rag:
-            st.write_stream(llm_groq.generate_response(messages))
+            st.write_stream(llm_groq.invoke(messages))
         else:
             st.write_stream(stream_llm_rag_response(llm_groq, messages))
