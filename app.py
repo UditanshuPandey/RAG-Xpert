@@ -57,13 +57,28 @@ if "messages" not in st.session_state:
 
 # --- Sidebar ---
 with st.sidebar:
-    # Developer Credit at the Top
+    # Developer Credit at the Top with Theme-Adaptive Colors
     st.markdown("""
-        <div style="text-align: center; padding: 10px; border-radius: 10px; background-color: #f0f2f6;">
-            <h4>👨‍💻 Developed by</h4>
-            <h3 style="color: #007BFF;">Uditanshu Pandey</h3>
-        </div>
-        """, unsafe_allow_html=True)
+        <style>
+            .dev-credit {
+                text-align: center;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                background-color: rgba(0, 123, 255, 0.2); /* Adaptive Blue */
+                color: #ffffff; /* White Text for Visibility */
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+            @media (prefers-color-scheme: dark) {
+                .dev-credit {
+                    background-color: rgba(255, 255, 255, 0.1); /* Light Background for Dark Mode */
+                    color: #f0f0f0; /* Light Text */
+                }
+            }
+        </style>
+        <div class="dev-credit">👨‍💻 Developed by <br> <span style="color:#FFDD57;">Uditanshu Pandey</span></div>
+    """, unsafe_allow_html=True)
     
     st.divider()
     
