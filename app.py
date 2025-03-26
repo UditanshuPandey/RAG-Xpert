@@ -57,10 +57,20 @@ if "messages" not in st.session_state:
 
 # --- Sidebar ---
 with st.sidebar:
-    st.divider()
-    st.header("RAG Sources:")
+    # Developer Credit at the Top
+    st.markdown("""
+        <div style="text-align: center; padding: 10px; border-radius: 10px; background-color: #f0f2f6;">
+            <h4>👨‍💻 Developed by</h4>
+            <h3 style="color: #007BFF;">Uditanshu Pandey</h3>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # File upload input for RAG with documents
+    st.divider()
+    
+    # RAG Sources Section
+    st.header("📂 RAG Sources")
+    
+    # File Upload
     st.file_uploader(
         "📄 Upload a document", 
         type=["pdf", "txt", "docx", "md"],
@@ -69,31 +79,30 @@ with st.sidebar:
         key="rag_docs",
     )
 
-    # URL input for RAG with websites
+    # URL Input
     st.text_input(
-        "🌐 Introduce a URL", 
+        "🌐 Enter a URL", 
         placeholder="https://example.com",
         on_change=load_url_to_db,
         key="rag_url",
     )
 
+    # Toggle for RAG Usage
     is_vector_db_loaded = ("vector_db" in st.session_state and st.session_state.vector_db is not None)
 
     st.toggle(
-        "Use RAG", 
+        "🔍 Use RAG", 
         value=is_vector_db_loaded, 
         key="use_rag", 
         disabled=not is_vector_db_loaded,
     )
 
-    st.button("Clear Chat", on_click=lambda: st.session_state.messages.clear(), type="primary")
+    # Clear Chat Button
+    st.button("🗑️ Clear Chat", on_click=lambda: st.session_state.messages.clear(), type="primary")
 
+    # Documents in DB
     with st.expander(f"📚 Documents in DB ({0 if not is_vector_db_loaded else len(st.session_state.rag_sources)})"):
         st.write([] if not is_vector_db_loaded else [source for source in st.session_state.rag_sources])
-
-    # Developer Credit
-    st.markdown("---")
-    st.markdown("👨‍💻 Developed by **Uditanshu Pandey**")
 
 # --- Main Chat App ---
 for message in st.session_state.messages:
