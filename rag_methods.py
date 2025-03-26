@@ -15,7 +15,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from sentence_transformers import SentenceTransformer
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain.embeddings import HuggingFaceInstructEmbeddings
 
 
 # Load environment variables
@@ -97,7 +97,7 @@ def load_url_to_db():
 
 
 def initialize_vector_db(docs):
-    embedding = HuggingFaceEmbeddings("sentence-transformers/all-MiniLM-L6-v2")
+    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
 
     vector_db = Chroma.from_documents(
         documents=docs,
