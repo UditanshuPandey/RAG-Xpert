@@ -91,6 +91,10 @@ with st.sidebar:
     with st.expander(f"📚 Documents in DB ({0 if not is_vector_db_loaded else len(st.session_state.rag_sources)})"):
         st.write([] if not is_vector_db_loaded else [source for source in st.session_state.rag_sources])
 
+    # Developer Credit
+    st.markdown("---")
+    st.markdown("👨‍💻 Developed by **Uditanshu Pandey**")
+
 # --- Main Chat App ---
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -113,4 +117,3 @@ if prompt := st.chat_input("Your message"):
             st.write_stream(llm_groq.generate_response(messages))
         else:
             st.write_stream(stream_llm_rag_response(llm_groq, messages))
-
