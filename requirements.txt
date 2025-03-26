@@ -9,8 +9,6 @@ streamlit
 faiss-cpu
 transformers
 sentence-transformers==2.2.2
-pysqlite3-binary
-pysqlite3
 InstructorEmbedding
 huggingface_hub==0.21.4
 pysqlite3-binary; sys_platform == 'linux'
