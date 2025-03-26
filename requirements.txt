@@ -1,4 +1,5 @@
 ﻿langchain-groq
+sentence-transformers==2.2.2
 pysqlite3-binary; sys_platform == 'linux'
 aiohappyeyeballs==2.4.0
 aiohttp==3.10.5
