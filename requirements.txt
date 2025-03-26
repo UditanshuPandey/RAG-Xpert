@@ -1,4 +1,5 @@
-﻿langchain
+﻿pysqlite3-binary; sys_platform == 'linux'
+langchain
 langchain_community
 PyPDF2
 chromadb
