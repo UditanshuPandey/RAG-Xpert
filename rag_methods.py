@@ -97,7 +97,7 @@ def load_url_to_db():
 
 
 def initialize_vector_db(docs):
-    embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embedding = HuggingFaceEmbeddings(model_name="BAAI/bge-large-en-v1.5")
 
     vector_db = Chroma.from_documents(
         documents=docs,
